@@ -1,7 +1,7 @@
 'use strict';
 
-const holdButton = document.getElementsByClassName("btn-hold");
-const startButton = document.getElementsByClassName("btn-start");
+const holdBtn = document.getElementsByClassName("btn-hold");
+const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.getElementById("game-img");
 
 const cards = [{
@@ -42,7 +42,22 @@ const cards = [{
 },
 ];
 
+// function startGame() {
+//   startButton.addEventlistener('click', function () {
+//     const imgSelector = Math.trunc(Math.random() * 5);
+//     console.log(imgSelector);
+//     const userHand = cards.filter((value) => value.score);
+//     const compHand = cards[imgSelector];
+//     if (imgSelector === userHand) {
+//       gameImg.src = compHand.image;
+//     };
+//   });
+// }
 
-startButton.addEventlistener('click', function () {
+function getRndInteger() {
+  const imgSelector = Math.trunc(Math.random() * 5);
+  console.log(imgSelector);
+  const userHand = cards.filter((value) => value.score === imgSelector);
+  console.log(userHand);
   
-})
+}
