@@ -2,6 +2,7 @@
 
 const holdBtn = document.getElementsByClassName("btn-hold");
 const startBtn = document.getElementsByClassName("btn-start");
+const gameImg = document.querySelector("#game-img");
 
 const cards = [{
   name: "dice 1",
@@ -43,14 +44,22 @@ const cards = [{
 
 let userChoice = [];
 
+// function startGame() {
+//   const imgSelector = Math.trunc(Math.random() * 5);
+//   const randomCard = cards.filter((value) => value.image_id === imgSelector);
+//   const cardImage = randomCard[0].image;
+//   const gameImg = document.querySelectorAll("#game-img");
+//   for (let i = 0; i < gameImg.length; i++) {
+//     gameImg[i].src = cardImage;
+//   }
+// }
+
 function startGame() {
   const imgSelector = Math.trunc(Math.random() * 5);
   const randomCard = cards.filter((value) => value.image_id === imgSelector);
   const cardImage = randomCard[0].image;
-  const gameImg = document.querySelectorAll("#game-img");
-  for (let i = 0; i < gameImg.length; i++) {
-    gameImg[i].src = cardImage;
-  }
+  // const gameImg = document.querySelectorAll("#game-img");
+  gameImg.src = cardImage;
 }
 
 // for (let button of holdBtn) {
