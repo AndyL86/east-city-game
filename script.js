@@ -62,6 +62,18 @@ function startGame() {
   gameImg.src = cardImage;
 }
 
+const list = [];
+const className = document.querySelectorAll("#game-img");
+   for(var index=0;index < className.length;index++){
+      list.push(className[index].dataset.id)
+   }
+   console.log(list);
+const cardNum = Math.trunc(Math.random() * 5);
+for (var n in list) {
+  if (cardNum === list[n]);
+  console.log("test");
+}
+
 // for (let button of holdBtn) {
 //   button.addEventListener("click", function() {
 //     console.log("test");
