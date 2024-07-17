@@ -54,24 +54,34 @@ let userChoice = [];
 //   }
 // }
 
-function startGame() {
+function gameLogic() {
   const imgSelector = Math.trunc(Math.random() * 5);
   const randomCard = cards.filter((value) => value.image_id === imgSelector);
   const cardImage = randomCard[0].image;
-  // const gameImg = document.querySelectorAll("#game-img");
   gameImg.src = cardImage;
 }
 
-const list = [];
-const className = document.querySelectorAll("#game-img");
-   for(var index=0;index < className.length;index++){
-      list.push(className[index].src)
-   }
-   console.log(list);
-const cardNum = Math.trunc(Math.random() * 5);
-for (var n in list) {
-  if (cardNum === list[n]);
-  console.log("test");
+function startGame() {
+  // const imgSelector = Math.trunc(Math.random() * 5);
+  // const randomCard = cards.filter((value) => value.image_id === imgSelector);
+  // const cardImage = randomCard[0].image;
+  const list = [];
+  const className = document.querySelectorAll("#game-img");
+    for(var index=0;index < className.length;index++){
+        list.push(className[index].src)       
+    }
+    console.log(list);
+    // console.log(list.length);
+  const cardNum = Math.trunc(Math.random() * 5);
+  for (var n in list) {  
+    if (n) {          
+     gameLogic(n);
+      // console.log(list[0]);
+    } else {}
+    // if (cardNum === list[n]);
+    // console.log(n);
+    // console.log(list[1]);
+  }
 }
 
 // for (let button of holdBtn) {
