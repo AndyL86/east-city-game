@@ -65,7 +65,7 @@ function startGame() {
 const list = [];
 const className = document.querySelectorAll("#game-img");
    for(var index=0;index < className.length;index++){
-      list.push(className[index].dataset.id)
+      list.push(className[index].src)
    }
    console.log(list);
 const cardNum = Math.trunc(Math.random() * 5);
