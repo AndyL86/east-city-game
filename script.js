@@ -42,17 +42,6 @@ const cards = [{
 },
 ];
 
-// function startGame() {
-//   const imgSelector = Math.trunc(Math.random() * 5);
-//   const randomCard = cards.filter((value) => value.image_id === imgSelector);
-//   const cardImage = randomCard[0].image;
-//   const gameImg = document.querySelectorAll("#game-img");
-//   for (let i = 0; i < gameImg.length; i++) {
-//     gameImg[i].src = cardImage;
-//   }
-// }
-
-let userChoice = [];
 
 // function gameLogic() {
 //   const imgSelector = Math.trunc(Math.random() * 5);
@@ -63,7 +52,7 @@ let userChoice = [];
 // }
 
 function startGame() {
-  
+  // Card image randomiser list
   const newList = [];
   for (let i = 0; i < 6; i++) {
     const imgSelector = Math.trunc(Math.random() * 5);
@@ -71,28 +60,30 @@ function startGame() {
     const cardImage = randomCard[0].image;
     newList.push(cardImage);
   }
-  console.log(newList);
+  // Img element randomiser list
   const list = [];
   const className = document.querySelectorAll("#game-img");
-    for(var index=0;index < className.length;index++){
-        list.push(className[index].src)       
-    }
+  for(var index=0;index < className.length;index++){
+      list.push(className[index].src)       
+  }
+  // List replace
   for (var n in list) {  
     if (n) {          
       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
     } else {}
   }
+  // Img source replace
   for (let e = 0; e < 6; e++) {
   className[e].src = newList[e];
   }
 }
 
-// for (let button of holdBtn) {
-//   button.addEventListener("click", function() {
-//     console.log("test");
-//   })
-// }
-
-// function hold() {
-
-// }
+function btnHold() {
+  let userChoice = [];
+  const className2 = document.querySelectorAll("#game-img");
+  for(var index=0;index < className2.length;index++){
+      userChoice.push(className2[index])       
+  }
+  if ()
+  console.log(userChoice);
+}
