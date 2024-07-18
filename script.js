@@ -63,8 +63,7 @@ let userChoice = [];
 // }
 
 function startGame() {
-  // gameLogic();
-  // const cardNum = Math.trunc(Math.random() * 5);
+  
   const newList = [];
   for (let i = 0; i < 6; i++) {
     const imgSelector = Math.trunc(Math.random() * 5);
@@ -78,23 +77,13 @@ function startGame() {
     for(var index=0;index < className.length;index++){
         list.push(className[index].src)       
     }
-    console.log(list);
-    // console.log(list.length);
-
-    className[0].src = newList[0];
-    className[1].src = newList[1];
-    className[2].src = newList[2];
-    className[3].src = newList[3];
-    className[4].src = newList[4];
-    className[5].src = newList[5];
-
   for (var n in list) {  
     if (n) {          
       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
     } else {}
-    // if (cardNum === list[n]);
-    // console.log(n);
-    // console.log(list[1]);
+  }
+  for (let e = 0; e < 6; e++) {
+  className[e].src = newList[e];
   }
 }
 
