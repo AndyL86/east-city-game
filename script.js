@@ -42,15 +42,6 @@ const cards = [{
 },
 ];
 
-
-// function gameLogic() {
-//   const imgSelector = Math.trunc(Math.random() * 5);
-//   const randomCard = cards.filter((value) => value.image_id === imgSelector);
-//   const cardImage = randomCard[0].image;
-//   console.log(cardImage);
-//   gameImg.src = cardImage;
-// }
-
 function startGame() {
   // Card image randomiser list
   const newList = [];
@@ -79,11 +70,23 @@ function startGame() {
 }
 
 function btnHold() {
-  let userChoice = [];
-  const className2 = document.querySelectorAll("#game-img");
-  for(var index=0;index < className2.length;index++){
-      userChoice.push(className2[index])       
+  for (let button of holdBtn) {
+    button.addEventListener("click", function() {
+      const userChoice = this.getAttribute("data-id");
+      console.log(userChoice);
+    });
   }
-  if ()
-  console.log(userChoice);
 }
+btnHold();
+
+// function btnHold() {
+//   let userChoice = [];
+//   const className2 = document.querySelectorAll("#game-img");
+//   for(var index=0;index < className2.length;index++){
+//       const className3 = className2[index].dataset.id;
+//       userChoice.push(className3)  
+//   }
+//   for (var h in userChoice) {
+//   console.log(h);
+//   }
+// }
