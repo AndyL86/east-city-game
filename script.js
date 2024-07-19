@@ -69,26 +69,13 @@ function startGame() {
   }
 }
 
-function imgHold() {
+// get clicked dataset id DONT DELETE
+function getId() {
   for (let button of holdImg) {
     button.addEventListener("click", function() {
-      const userChoice = document.getElementById("game-img");
-      userChoice.classList.remove("card-select");
-      console.log(userChoice);
+      button.classList.remove("card-select");
+      startGame();
     });
   }
 }
-imgHold();
-
-
-// function btnHold() {
-//   let userChoice = [];
-//   const className2 = document.querySelectorAll("#game-img");
-//   for(var index=0;index < className2.length;index++){
-//       const className3 = className2[index].dataset.id;
-//       userChoice.push(className3)  
-//   }
-//   for (var h in userChoice) {
-//   console.log(h);
-//   }
-// }
+getId();
