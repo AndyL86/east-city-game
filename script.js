@@ -1,6 +1,6 @@
 'use strict';
 
-const holdBtn = document.getElementsByClassName("btn-hold");
+const holdImg = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
 
@@ -53,7 +53,7 @@ function startGame() {
   }
   // Img element randomiser list
   const list = [];
-  const className = document.querySelectorAll("#game-img");
+  const className = document.getElementsByClassName("card-select");
   for(var index=0;index < className.length;index++){
       list.push(className[index].src)       
   }
@@ -69,15 +69,17 @@ function startGame() {
   }
 }
 
-function btnHold() {
-  for (let button of holdBtn) {
+function imgHold() {
+  for (let button of holdImg) {
     button.addEventListener("click", function() {
-      const userChoice = this.getAttribute("data-id");
+      const userChoice = document.getElementById("game-img");
+      userChoice.classList.remove("card-select");
       console.log(userChoice);
     });
   }
 }
-btnHold();
+imgHold();
+
 
 // function btnHold() {
 //   let userChoice = [];
