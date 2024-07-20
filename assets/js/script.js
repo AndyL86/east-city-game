@@ -6,41 +6,43 @@ const gameImg = document.querySelector("#game-img");
 
 const cards = [{
   name: "dice 1",
-  image: "dice-1.png",
+  image: "assets/images/dice-1.png",
   image_id: 0,
   score: 10,
 },
 {
   name: "dice 2",
-  image: "dice-2.png",
+  image: "assets/images/dice-2.png",
   image_id: 1,
   score: 20,
 },
 {
   name: "dice 3",
-  image: "dice-3.png",
+  image: "assets/images/dice-3.png",
   image_id: 2,
   score: 30,
 },
 {
   name: "dice 4",
-  image: "dice-4.png",
+  image: "assets/images/dice-4.png",
   image_id: 3,
   score: 40,
 },
 {
   name: "dice 5",
-  image: "dice-5.png",
+  image: "assets/images/dice-5.png",
   image_id: 4,
   score: 50,
 },
 {
   name: "dice 6",
-  image: "dice-6.png",
+  image: "assets/images/dice-6.png",
   image_id: 5,
   score: 60,
 },
 ];
+
+let userScore = [];
 
 function startGame() {
   // Card image randomiser list
@@ -69,13 +71,26 @@ function startGame() {
   }
 }
 
-// get clicked dataset id DONT DELETE
+// remove card select class DONT DELETE
 function getId() {
   for (let button of holdImg) {
     button.addEventListener("click", function() {
       button.classList.remove("card-select");
+      userScore.push(button);
       startGame();
     });
   }
 }
 getId();
+
+// const userScore = [];
+// function scoreCalc() {
+//   for (let button of holdImg) {
+//   const getScore = button.getElementsByClassName("card-score");
+//   userScore.push(getScore);
+//   }
+// }
+// console.log(userScore);
+// scoreCalc();
+// const cardScore = randomCard[0].score;
+// userScore.push(cardScore);
