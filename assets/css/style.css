@@ -1,3 +1,7 @@
 .container {
     padding: 0 6rem 6rem 6rem;
 }
+
+.img-hide {
+    display: none;
+}
