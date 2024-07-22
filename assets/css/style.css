@@ -5,3 +5,11 @@
 .img-hide {
     display: none;
 }
+
+.card-select {
+    cursor: pointer;
+}
+
+.image-border {
+    border: groove;
+}

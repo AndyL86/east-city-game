@@ -4,6 +4,7 @@ const holdImg = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
 const licenceList = document.querySelectorAll("#lic-select");
+const hideImg = document.getElementsByClassName("img-hide");
 
 const cards = [{
   name: "dice 1",
@@ -54,13 +55,14 @@ function startGame() {
   const newList = [];
   const imgList = [];
   for (let i = 0; i < 6; i++) {
-    const imgSelector = Math.trunc(Math.random() * 5);
+    const imgSelector = Math.trunc(Math.random() * 6);
     const randomCard = cards.filter((value) => value.image_id === imgSelector);
     const cardImage = randomCard[0].image;
     const licImg = randomCard[0].licence_img;
     newList.push(cardImage);
     imgList.push(licImg);
   }
+  console.log(imgList);
   // Img element randomiser list
   const list = [];
   const className = document.getElementsByClassName("card-select");
@@ -89,7 +91,6 @@ function startGame() {
     for (let e = 0; e < 6; e++) {
       className[e].src = newList[e];
       licenceList[e].src = imgList[e];
-      // licenceList[e] = list1[e];
       }
 }
 
@@ -98,14 +99,18 @@ function getId() {
   for (let button of holdImg) {
     button.addEventListener("click", function() {
       button.classList.remove("card-select");
-      
-      // document.getElementById("img-hide").remove()
+      button.classList.add("image-border");
+      licHide();
       // licence();
-      startGame();
+      // startGame();
     });
   }
 }
 getId();
+
+function licHide() {
+    hideImg.classList.remove("img-hide");
+}
 
 // get licence element image src list
 // function licence() {
@@ -123,15 +128,3 @@ getId();
 //   }
 //   console.log(test2);
 // }
-
-// const userScore = [];
-// function scoreCalc() {
-//   for (let button of holdImg) {
-//   const getScore = button.getElementsByClassName("card-score");
-//   userScore.push(getScore);
-//   }
-// }
-// console.log(userScore);
-// scoreCalc();
-// const cardScore = randomCard[0].score;
-// userScore.push(cardScore);
