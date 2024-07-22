@@ -51,7 +51,7 @@ const cards = [{
 ];
 
 function startGame() {
-  // Card image randomiser list
+   /* Card image randomiser list */
   const newList = [];
   const imgList = [];
   for (let i = 0; i < 6; i++) {
@@ -62,69 +62,68 @@ function startGame() {
     newList.push(cardImage);
     imgList.push(licImg);
   }
-  console.log(imgList);
-  // Img element randomiser list
+   /* Img element randomiser list */
   const list = [];
   const className = document.getElementsByClassName("card-select");
   for(var index=0;index < className.length;index++){
       list.push(className[index].src)       
   }
-  const licList = [];
-  // const licenceList = document.querySelectorAll("#lic-select");
-  for(var index=0;index < licenceList.length;index++){
-      licList.push(licenceList[index].src)
-  }
-  console.log(licList);
-  // List replace
+  // const licList = [];
+  // // const licenceList = document.querySelectorAll("#lic-select");
+  // for(var index=0;index < licenceList.length;index++){
+  //     licList.push(licenceList[index].src)
+  // }
+   /* List replace */
   for (var n in list) {  
     if (n) {          
       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
     } else {}
   }
-  for (var y in licList) {  
-    if (y) {          
-      Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
-    } else {}
-  }
+  console.log("current dice image list minus selected image working backwards", newList);
+  // for (var y in licList) {  
+  //   if (y) {          
+  //     Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
+  //   } else {}
+  // }
+  // console.log("current licence image list minus selected image working backwards", imgList);
 
-    // Img source replace
-    for (let e = 0; e < 6; e++) {
-      className[e].src = newList[e];
-      licenceList[e].src = imgList[e];
-      }
+    /* Img source replace */
+  for (let e = 0; e < 6; e++) {
+    className[e].src = newList[e];
+    licenceList[e].src = imgList[e];
+  }
 }
 
-// remove card select class DONT DELETE
+ /* remove card select class DONT DELETE */
 function getId() {
   for (let button of holdImg) {
     button.addEventListener("click", function() {
+      licence();
       button.classList.remove("card-select");
       button.classList.add("image-border");
-      licHide();
-      // licence();
-      // startGame();
     });
   }
 }
 getId();
 
-function licHide() {
-    hideImg.classList.remove("img-hide");
+ /* get licence element image src list */
+function licence() {
+  const licList = [];
+  const licenceList = document.querySelectorAll("#lic-select");
+  for(var index=0;index < licenceList.length;index++){
+      licList.push(licenceList[index].src)
+  }
+  console.log("logs current licence image jpg in element on click", licList);
 }
+// licence();
 
-// get licence element image src list
-// function licence() {
-//   const licList = [];
-//   const licenceList = document.querySelectorAll("#lic-select");
-//   for(var index=0;index < licenceList.length;index++){
-//       licList.push(licenceList[index].src)
-//   }
-//   console.log(licList);
-//   // logs list of licence jpg in cards object
-//   const test2 = [];
-//   for (var y in cards) {
-//   var test1 = Object.entries(cards)[y][1].licence_img;
-//   test2.push(test1);
-//   }
-//   console.log(test2);
+
+
+
+  /* logs list of scores in cards object */
+// const test2 = [];
+// for (var y in cards) {
+// var test1 = Object.entries(cards)[y][1].score;
+// test2.push(test1);
 // }
+// console.log(test2);
