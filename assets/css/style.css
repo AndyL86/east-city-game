@@ -13,3 +13,16 @@
 .image-border {
     border: groove;
 }
+
+.btn-start {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #37393A;
+    background-color: #f7b91e;
+    border-style: solid;
+    border-color: #37393A;
+    border-width: 3px;
+    border-radius: 6px;
+    width: 100px;
+    height: 40px;
+}

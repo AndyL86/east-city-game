@@ -59,17 +59,20 @@ function startGame() {
     const randomCard = cards.filter((value) => value.image_id === imgSelector);
     const cardImage = randomCard[0].image;
     const licImg = randomCard[0].licence_img;
+    const cardScore = randomCard[0].score;
     newList.push(cardImage);
     imgList.push(licImg);
+    console.log(cardScore);
   }
+  
    /* Img element randomiser list */
   const list = [];
   const className = document.getElementsByClassName("card-select");
   for(var index=0;index < className.length;index++){
-      list.push(className[index].src)       
+      list.push(className[index].src)      
   }
   // const licList = [];
-  // // const licenceList = document.querySelectorAll("#lic-select");
+  // const licenceList = document.querySelectorAll("#lic-select");
   // for(var index=0;index < licenceList.length;index++){
   //     licList.push(licenceList[index].src)
   // }
@@ -79,7 +82,7 @@ function startGame() {
       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
     } else {}
   }
-  console.log("current dice image list minus selected image working backwards", newList);
+  // console.log("current dice image list minus selected image working backwards", newList);
   // for (var y in licList) {  
   //   if (y) {          
   //     Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
@@ -92,29 +95,40 @@ function startGame() {
     className[e].src = newList[e];
     licenceList[e].src = imgList[e];
   }
+  getId();
 }
 
  /* remove card select class DONT DELETE */
 function getId() {
   for (let button of holdImg) {
     button.addEventListener("click", function() {
-      licence();
+      // licence();
       button.classList.remove("card-select");
       button.classList.add("image-border");
+      button.classList.add("card-count");
+      counter();
     });
   }
 }
-getId();
+
+function counter() {
+  const cardCount = [];
+  const count = document.getElementsByClassName("card-count");
+  for (var index=0; index < count.length; index++) {
+    cardCount.push(count[index].src);
+  }
+  console.log(cardCount);
+}
 
  /* get licence element image src list */
-function licence() {
-  const licList = [];
-  const licenceList = document.querySelectorAll("#lic-select");
-  for(var index=0;index < licenceList.length;index++){
-      licList.push(licenceList[index].src)
-  }
-  console.log("logs current licence image jpg in element on click", licList);
-}
+// function licence() {
+//   const licList = [];
+//   const licenceList = document.querySelectorAll("#lic-select");
+//   for(var index=0;index < licenceList.length;index++){
+//       licList.push(licenceList[index].src)
+//   }
+//   console.log("logs current licence image jpg in element on click", licList);
+// }
 // licence();
 
 
