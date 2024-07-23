@@ -3,7 +3,7 @@
 const holdImg = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
-// const licenceList = document.querySelectorAll("#lic-select");
+const licenceList = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 
 const cards = [{
@@ -52,7 +52,7 @@ const cards = [{
 
 function startGame() {
    /* Card image randomiser list */
-   getId();
+  getId();
   const newList = [];
   const imgList = [];
   const scoreList = [];
@@ -70,12 +70,12 @@ function startGame() {
   
    /* Img element randomiser list */
   const list = [];
-  const className = document.getElementsByClassName("card-select");
-  for(var index=0;index < className.length;index++){
-      list.push(className[index].src)      
+  // const className = document.getElementsByClassName("card-select");
+  for(var index=0;index < holdImg.length;index++){
+      list.push(holdImg[index].src)      
   }
   const licList = [];
-  const licenceList = document.getElementsByClassName("lic-select");
+  // const licenceList = document.getElementsByClassName("lic-select");
   for(var index=0;index < licenceList.length;index++){
       licList.push(licenceList[index].src)
   }
@@ -95,11 +95,12 @@ function startGame() {
 
     /* Img source replace */
   for (var a in newList) {
-    className[a].src = newList[a];
+    holdImg[a].src = newList[a];
   }
   for (var b in imgList) {
     licenceList[b].src = imgList[b];
   }
+  console.log(licList);
 }
 
  /* remove card select class DONT DELETE */
@@ -108,7 +109,6 @@ function getId() {
     button.addEventListener("click", function() {
       // licence();
       button.classList.remove("card-select");
-      button.classList.remove("lic-select");
       button.classList.add("image-border");
       button.classList.add("card-count");
       counter();
