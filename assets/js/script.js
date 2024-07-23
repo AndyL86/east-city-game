@@ -5,6 +5,9 @@ const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
 const licenceList = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
+// const userScore = document.getElementsByClassName("user-score");
+const userScore = document.getElementById("#user-score");
+
 
 const cards = [{
   name: "dice 1",
@@ -101,6 +104,12 @@ function startGame() {
     licenceList[b].src = imgList[b];
   }
   console.log(licList);
+
+  const itt = scoreList.values();
+
+  for (var value of itt) {
+      document.getElementById("user-score").innerHTML = value;
+  }
 }
 
  /* remove card select class DONT DELETE */
