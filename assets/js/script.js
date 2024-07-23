@@ -54,6 +54,7 @@ function startGame() {
    /* Card image randomiser list */
   const newList = [];
   const imgList = [];
+  const scoreList = [];
   for (let i = 0; i < 6; i++) {
     const imgSelector = Math.trunc(Math.random() * 6);
     const randomCard = cards.filter((value) => value.image_id === imgSelector);
@@ -62,8 +63,9 @@ function startGame() {
     const cardScore = randomCard[0].score;
     newList.push(cardImage);
     imgList.push(licImg);
-    console.log(cardScore);
+    scoreList.push(cardScore);
   }
+  console.log(scoreList);
   
    /* Img element randomiser list */
   const list = [];
