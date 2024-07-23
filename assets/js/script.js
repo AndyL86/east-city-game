@@ -3,7 +3,7 @@
 const holdImg = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
-const licenceList = document.querySelectorAll("#lic-select");
+// const licenceList = document.querySelectorAll("#lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 
 const cards = [{
@@ -52,6 +52,7 @@ const cards = [{
 
 function startGame() {
    /* Card image randomiser list */
+   getId();
   const newList = [];
   const imgList = [];
   const scoreList = [];
@@ -73,11 +74,11 @@ function startGame() {
   for(var index=0;index < className.length;index++){
       list.push(className[index].src)      
   }
-  // const licList = [];
-  // const licenceList = document.querySelectorAll("#lic-select");
-  // for(var index=0;index < licenceList.length;index++){
-  //     licList.push(licenceList[index].src)
-  // }
+  const licList = [];
+  const licenceList = document.getElementsByClassName("lic-select");
+  for(var index=0;index < licenceList.length;index++){
+      licList.push(licenceList[index].src)
+  }
    /* List replace */
   for (var n in list) {  
     if (n) {          
@@ -85,19 +86,20 @@ function startGame() {
     } else {}
   }
   // console.log("current dice image list minus selected image working backwards", newList);
-  // for (var y in licList) {  
-  //   if (y) {          
-  //     Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
-  //   } else {}
-  // }
+  for (var y in licList) {  
+    if (y) {          
+      Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
+    } else {}
+  }
   // console.log("current licence image list minus selected image working backwards", imgList);
 
     /* Img source replace */
-  for (let e = 0; e < 6; e++) {
-    className[e].src = newList[e];
-    licenceList[e].src = imgList[e];
+  for (var a in newList) {
+    className[a].src = newList[a];
   }
-  getId();
+  for (var b in imgList) {
+    licenceList[b].src = imgList[b];
+  }
 }
 
  /* remove card select class DONT DELETE */
@@ -106,6 +108,7 @@ function getId() {
     button.addEventListener("click", function() {
       // licence();
       button.classList.remove("card-select");
+      button.classList.remove("lic-select");
       button.classList.add("image-border");
       button.classList.add("card-count");
       counter();
