@@ -6,7 +6,6 @@ const gameImg = document.querySelector("#game-img");
 const licenceList = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 // const userScore = document.getElementsByClassName("user-score");
-const userScore = document.getElementById("#user-score");
 
 
 const cards = [{
@@ -105,31 +104,22 @@ function startGame() {
   }
   console.log(licList);
 
-  const itt = scoreList.values();
-
-  for (var value of itt) {
-      document.getElementById("user-score").innerHTML = value;
-  }
 }
-
-const imgSrc = [];
-for (let button of holdImg) {
-  const help = button;
-  imgSrc.push(help)
-  const itt1 = imgSrc.values();
-  console.log(itt1);
-}
-
-
 
  /* remove card select class DONT DELETE */
 function getId() {
-    imgSrc.classList.remove("card-select");
-    imgSrc.classList.add("image-border");
-    imgSrc.classList.add("card-count");
-    counter();
+  for (let button of holdImg) {
+    button.addEventListener("click", function() {
+      // licence();
+      button.classList.remove("card-select");
+      button.classList.add("image-border");
+      button.classList.add("card-count");
+      counter();
+    });
+  }
 }
 
+/* list of selected images */
 function counter() {
   const cardCount = [];
   const count = document.getElementsByClassName("card-count");
@@ -139,6 +129,12 @@ function counter() {
   console.log(cardCount);
 }
 
+// function pushScore() {
+//   const itt = scoreList.values();
+//   for (var val of itt) {
+//     document.getElementById("user-score").innerHTML = val;
+//   }
+// }
  /* get licence element image src list */
 // function licence() {
 //   const licList = [];
