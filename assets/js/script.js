@@ -112,17 +112,22 @@ function startGame() {
   }
 }
 
+const imgSrc = [];
+for (let button of holdImg) {
+  const help = button;
+  imgSrc.push(help)
+  const itt1 = imgSrc.values();
+  console.log(itt1);
+}
+
+
+
  /* remove card select class DONT DELETE */
 function getId() {
-  for (let button of holdImg) {
-    button.addEventListener("click", function() {
-      // licence();
-      button.classList.remove("card-select");
-      button.classList.add("image-border");
-      button.classList.add("card-count");
-      counter();
-    });
-  }
+    imgSrc.classList.remove("card-select");
+    imgSrc.classList.add("image-border");
+    imgSrc.classList.add("card-count");
+    counter();
 }
 
 function counter() {
