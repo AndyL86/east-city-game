@@ -5,8 +5,8 @@ const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
 const licenceList = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
-// const userScore = document.getElementsByClassName("user-score");
-
+const totalScore = document.getElementsByClassName("total-score");
+// const cardGroup = document.getElementById("card-group");
 
 const cards = [{
   name: "dice 1",
@@ -52,6 +52,8 @@ const cards = [{
 },
 ];
 
+let sum = 0;
+
 function startGame() {
    /* Card image randomiser list */
   getId();
@@ -68,7 +70,9 @@ function startGame() {
     imgList.push(licImg);
     scoreList.push(cardScore);
   }
-  console.log(scoreList);
+  /* card score destructure */
+  const [cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6] = scoreList;
+  console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
   
    /* Img element randomiser list */
   const list = [];
@@ -87,13 +91,18 @@ function startGame() {
       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
     } else {}
   }
-  // console.log("current dice image list minus selected image working backwards", newList);
+  /* card main image destructure */
+  const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = list;
+  console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
+
   for (var y in licList) {  
     if (y) {          
       Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
     } else {}
   }
-  // console.log("current licence image list minus selected image working backwards", imgList);
+  /* card licence image destructure */
+  const [cardLic1, cardLic2, cradLic3, cardLic4, cardLic5, cardLic6] = licList;
+  console.log(cardLic1, cardLic2, cradLic3, cardLic4, cardLic5, cardLic6);
 
     /* Img source replace */
   for (var a in newList) {
@@ -102,8 +111,11 @@ function startGame() {
   for (var b in imgList) {
     licenceList[b].src = imgList[b];
   }
-  console.log(licList);
 
+  for (let i = 0; i < scoreList.length; i++ ) {
+    sum += scoreList[i];
+  }
+  console.log(sum);
 }
 
  /* remove card select class DONT DELETE */
@@ -126,13 +138,20 @@ function counter() {
   for (var index=0; index < count.length; index++) {
     cardCount.push(count[index].src);
   }
-  console.log(cardCount);
+  /* when all 6 cards are selected display finished message */
+  const [selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6] = cardCount;
+  console.log(selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6);
+  if (cardCount.length === 6) {
+    for (let score of totalScore) {
+    score.classList.remove("total-score");
+    }
+  }
 }
 
 // function pushScore() {
 //   const itt = scoreList.values();
 //   for (var val of itt) {
-//     document.getElementById("user-score").innerHTML = val;
+//     document.getElementById("total-score").innerHTML = val;
 //   }
 // }
  /* get licence element image src list */
