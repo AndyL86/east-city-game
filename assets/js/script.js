@@ -6,7 +6,8 @@ const gameImg = document.querySelector("#game-img");
 const licenceList = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
-// const cardGroup = document.getElementById("card-group");
+const userScore = document.getElementsByClassName("user-score");
+const cardGroup = document.getElementById("card-group");
 
 const cards = [{
   name: "dice 1",
@@ -72,7 +73,7 @@ function startGame() {
   }
   /* card score destructure */
   const [cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6] = scoreList;
-  console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
+  // console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
   
    /* Img element randomiser list */
   const list = [];
@@ -92,7 +93,7 @@ function startGame() {
     } else {}
   }
   /* card main image destructure */
-  const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = list;
+  const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = newList;
   console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
 
   for (var y in licList) {  
@@ -101,35 +102,65 @@ function startGame() {
     } else {}
   }
   /* card licence image destructure */
-  const [cardLic1, cardLic2, cradLic3, cardLic4, cardLic5, cardLic6] = licList;
-  console.log(cardLic1, cardLic2, cradLic3, cardLic4, cardLic5, cardLic6);
+  const [cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6] = licList;
+  // console.log(cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6);
+  if (licList) {
+    licenceList[0].src = cardLic1;
+    licenceList[1].src = cardLic2;
+    licenceList[2].src = cardLic3;
+    licenceList[3].src = cardLic4;
+    licenceList[4].src = cardLic5;
+    licenceList[5].src = cardLic6;
+  } else {}
 
     /* Img source replace */
-  for (var a in newList) {
-    holdImg[a].src = newList[a];
+  // for (var a in newList) {
+    if (holdImg && licenceList) {
+    holdImg[0].src = cardImg1;
+    holdImg[1].src = cardImg2;
+    holdImg[2].src = cardImg3;
+    holdImg[3].src = cardImg4;
+    holdImg[4].src = cardImg5;
+    holdImg[5].src = cardImg6;
+    userScore[0].innerHTML = cardScore1;
+    userScore[1].innerHTML = cardScore2;
+    userScore[2].innerHTML = cardScore3;
+    userScore[3].innerHTML = cardScore4;
+    userScore[4].innerHTML = cardScore5;
+    userScore[5].innerHTML = cardScore6;
+    // } else {}
   }
-  for (var b in imgList) {
-    licenceList[b].src = imgList[b];
-  }
+  // for (var b in imgList) {
+  //   licenceList[b].src = imgList[b];
+  // }
 
   for (let i = 0; i < scoreList.length; i++ ) {
     sum += scoreList[i];
   }
   console.log(sum);
+
 }
 
  /* remove card select class DONT DELETE */
 function getId() {
   for (let button of holdImg) {
-    button.addEventListener("click", function() {
+    
+    button.addEventListener("click", function(e) {
       // licence();
       button.classList.remove("card-select");
       button.classList.add("image-border");
       button.classList.add("card-count");
+      if (e.target.parentNode.querySelector(".img-hide")) {
+        e.target.parentNode.querySelector(".img-hide").classList.remove("img-hide");
+      }
+      if (e.target.parentNode.querySelector(".lic-select")) {
+        e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
+      }
       counter();
     });
   }
 }
+
 
 /* list of selected images */
 function counter() {
@@ -142,8 +173,8 @@ function counter() {
   const [selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6] = cardCount;
   console.log(selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6);
   if (cardCount.length === 6) {
-    for (let score of totalScore) {
-    score.classList.remove("total-score");
+    for (let tscore of totalScore) {
+    tscore.classList.remove("total-score");
     }
   }
 }
@@ -151,9 +182,10 @@ function counter() {
 // function pushScore() {
 //   const itt = scoreList.values();
 //   for (var val of itt) {
-//     document.getElementById("total-score").innerHTML = val;
+//     document.getElementById("user-score").innerHTML = val;
 //   }
 // }
+
  /* get licence element image src list */
 // function licence() {
 //   const licList = [];
