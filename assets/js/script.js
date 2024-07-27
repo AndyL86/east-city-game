@@ -77,15 +77,14 @@ function startGame() {
   
    /* Img element randomiser list */
   const list = [];
-  // const className = document.getElementsByClassName("card-select");
   for(var index=0;index < holdImg.length;index++){
       list.push(holdImg[index].src)      
   }
   const licList = [];
-  // const licenceList = document.getElementsByClassName("lic-select");
   for(var index=0;index < licenceList.length;index++){
       licList.push(licenceList[index].src)
   }
+  console.log(licList);
    /* List replace */
   for (var n in list) {  
     if (n) {          
@@ -94,7 +93,7 @@ function startGame() {
   }
   /* card main image destructure */
   const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = newList;
-  console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
+  // console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
 
   for (var y in licList) {  
     if (y) {          
@@ -134,10 +133,10 @@ function startGame() {
   //   licenceList[b].src = imgList[b];
   // }
 
-  for (let i = 0; i < scoreList.length; i++ ) {
-    sum += scoreList[i];
-  }
-  console.log(sum);
+  // for (let i = 0; i < scoreList.length; i++ ) {
+  //   sum += scoreList[i];
+  // }
+  // console.log(sum);
 
 }
 
@@ -150,12 +149,12 @@ function getId() {
       button.classList.remove("card-select");
       button.classList.add("image-border");
       button.classList.add("card-count");
-      if (e.target.parentNode.querySelector(".img-hide")) {
-        e.target.parentNode.querySelector(".img-hide").classList.remove("img-hide");
-      }
-      if (e.target.parentNode.querySelector(".lic-select")) {
-        e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
-      }
+      // if (e.target.parentNode.querySelector(".img-hide")) {
+      //   e.target.parentNode.querySelector(".img-hide").classList.remove("img-hide");
+      // }
+      // if (e.target.parentNode.querySelector(".lic-select")) {
+      //   e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
+      // }
       counter();
     });
   }

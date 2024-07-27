@@ -31,6 +31,11 @@
     display: none;
 }
 
-.user-score {
-    display: none;
+.end-score {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
 }
+/* .user-score {
+    display: none;
+} */

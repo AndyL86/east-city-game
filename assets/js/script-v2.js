@@ -4,6 +4,7 @@ const holdImg = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
 const gameImg = document.querySelector("#game-img");
 const hideImg = document.getElementsByClassName("img-hide");
+const cardGroup = document.getElementById("card-group");
 
 const cards = [{
   name: "dice 1",
@@ -49,7 +50,7 @@ const cards = [{
 },
 ];
 
-  /* Card image randomiser list */
+
 const newList = [];
 const imgList = [];
 const scoreList = [];
@@ -63,123 +64,10 @@ for (let i = 0; i < 6; i++) {
   imgList.push(licImg);
   scoreList.push(cardScore);
 }
-console.log(scoreList);
-console.log(newList);
-console.log(imgList);
-
-const list = [];
-const className = document.getElementsByClassName("card-select");
-for(var index=0;index < className.length;index++){
-    list.push(className[index].src)      
-}
-const licList = [];
-const licenceList = document.getElementsByClassName("lic-select");
-for(var index=0;index < licenceList.length;index++){
-    licList.push(licenceList[index].src)
-}
-for (var n in list) {  
-  if (n) {          
-    Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
-  } else {}
-}
-for (var y in licList) {  
-  if (y) {          
-    Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
-  } else {}
-}
-
-function startGame() {
-  for (var a in newList) {
-    className[a].src = newList[a];
-  }
-  for (var b in imgList) {
-    licenceList[b].src = imgList[b];
-  }
-}
-
-//     className[e].src = newList[e];
-//     licenceList[e].src = imgList[e];
-
-
-
-
-
-
-
-
-
-
-
-
-// function startGame() {
-//    /* Card image randomiser list */
-//   const newList = [];
-//   const imgList = [];
-//   const scoreList = [];
-//   for (let i = 0; i < 6; i++) {
-//     const imgSelector = Math.trunc(Math.random() * 6);
-//     const randomCard = cards.filter((value) => value.image_id === imgSelector);
-//     const cardImage = randomCard[0].image;
-//     const licImg = randomCard[0].licence_img;
-//     const cardScore = randomCard[0].score;
-//     newList.push(cardImage);
-//     imgList.push(licImg);
-//     scoreList.push(cardScore);
-//   }
-//   console.log(scoreList);
-  
-//    /* Img element randomiser list */
-//   const list = [];
-//   const className = document.getElementsByClassName("card-select");
-//   for(var index=0;index < className.length;index++){
-//       list.push(className[index].src)      
-//   }
-//   const licList = [];
-//   const licenceList = document.querySelectorAll("#lic-select");
-//   for(var index=0;index < licenceList.length;index++){
-//       licList.push(licenceList[index].src)
-//   }
-//    /* List replace */
-//   for (var n in list) {  
-//     if (n) {          
-//       Array.prototype.splice.apply(list, [0, newList.length].concat(newList));
-//     } else {}
-//   }
-//   // console.log("current dice image list minus selected image working backwards", newList);
-//   for (var y in licList) {  
-//     if (y) {          
-//       Array.prototype.splice.apply(licList, [0, imgList.length].concat(imgList));
-//     } else {}
-//   }
-//   // console.log("current licence image list minus selected image working backwards", imgList);
-
-//     /* Img source replace */
-//   for (let e = 0; e < 6; e++) {
-//     className[e].src = newList[e];
-//     licenceList[e].src = imgList[e];
-//   }
-//   getId();
-// }
-
-//  /* remove card select class DONT DELETE */
-// function getId() {
-//   for (let button of holdImg) {
-//     button.addEventListener("click", function() {
-//       // licence();
-//       button.classList.remove("card-select");
-//       button.classList.add("image-border");
-//       button.classList.add("card-count");
-//       counter();
-//     });
-//   }
-// }
-
-// function counter() {
-//   const cardCount = [];
-//   const count = document.getElementsByClassName("card-count");
-//   for (var index=0; index < count.length; index++) {
-//     cardCount.push(count[index].src);
-//   }
-//   console.log(cardCount);
-// }
+const [cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6] = scoreList;
+console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
+const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = newList;
+console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
+const [cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6] = imgList;
+console.log(cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6);
 
