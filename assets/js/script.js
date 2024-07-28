@@ -72,8 +72,8 @@ function startGame() {
     scoreList.push(cardScore);
   }
   /* card score destructure */
-  const [cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6] = scoreList;
-  // console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
+  // const [cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6] = scoreList;
+  //  console.log(cardScore1, cardScore2, cardScore3, cardScore4, cardScore5, cardScore6);
   
    /* Img element randomiser list */
   const list = [];
@@ -84,7 +84,7 @@ function startGame() {
   for(var index=0;index < licenceList.length;index++){
       licList.push(licenceList[index].src)
   }
-  console.log(licList);
+
    /* List replace */
   for (var n in list) {  
     if (n) {          
@@ -92,8 +92,8 @@ function startGame() {
     } else {}
   }
   /* card main image destructure */
-  const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = newList;
-  // console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
+  // const [cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6] = newList;
+  //  console.log(cardImg1, cardImg2, cardImg3, cardImg4, cardImg5, cardImg6);
 
   for (var y in licList) {  
     if (y) {          
@@ -101,34 +101,29 @@ function startGame() {
     } else {}
   }
   /* card licence image destructure */
-  const [cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6] = licList;
-  // console.log(cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6);
-  if (licList) {
-    licenceList[0].src = cardLic1;
-    licenceList[1].src = cardLic2;
-    licenceList[2].src = cardLic3;
-    licenceList[3].src = cardLic4;
-    licenceList[4].src = cardLic5;
-    licenceList[5].src = cardLic6;
-  } else {}
+  // const [cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6] = licList;
+  //  console.log(cardLic1, cardLic2, cardLic3, cardLic4, cardLic5, cardLic6);
 
-    /* Img source replace */
-  // for (var a in newList) {
-    if (holdImg && licenceList) {
-    holdImg[0].src = cardImg1;
-    holdImg[1].src = cardImg2;
-    holdImg[2].src = cardImg3;
-    holdImg[3].src = cardImg4;
-    holdImg[4].src = cardImg5;
-    holdImg[5].src = cardImg6;
-    userScore[0].innerHTML = cardScore1;
-    userScore[1].innerHTML = cardScore2;
-    userScore[2].innerHTML = cardScore3;
-    userScore[3].innerHTML = cardScore4;
-    userScore[4].innerHTML = cardScore5;
-    userScore[5].innerHTML = cardScore6;
-    // } else {}
+  const cardImage = [...newList];
+  const licenceImage = [...imgList];
+  const scoreVal = [...scoreList];
+  console.log(cardImage, licenceImage, scoreVal);
+
+  /* licence img source replace */
+  for(var licup=0;licup < licList.length;licup++){
+    licenceList[licup].src = licenceImage[licup];
   }
+
+  /* Main Img source replace */
+  for(var imgup=0;imgup < holdImg.length;imgup++){
+    holdImg[imgup].src = cardImage[imgup];
+  }
+
+  /* score html replace*/
+  for(var scrup=0;scrup < userScore.length;scrup++){
+    userScore[scrup].innerHTML = scoreVal[scrup];
+  }
+}
   // for (var b in imgList) {
   //   licenceList[b].src = imgList[b];
   // }
@@ -138,7 +133,6 @@ function startGame() {
   // }
   // console.log(sum);
 
-}
 
  /* remove card select class DONT DELETE */
 function getId() {
@@ -149,12 +143,13 @@ function getId() {
       button.classList.remove("card-select");
       button.classList.add("image-border");
       button.classList.add("card-count");
-      // if (e.target.parentNode.querySelector(".img-hide")) {
-      //   e.target.parentNode.querySelector(".img-hide").classList.remove("img-hide");
-      // }
+      if (e.target.parentNode.querySelector(".img-hide")) {
+        e.target.parentNode.querySelector(".img-hide").classList.remove("img-hide");
+      }
       // if (e.target.parentNode.querySelector(".lic-select")) {
       //   e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
       // }
+
       counter();
     });
   }
@@ -164,19 +159,20 @@ function getId() {
 /* list of selected images */
 function counter() {
   const cardCount = [];
-  const count = document.getElementsByClassName("card-count");
+  const count = document.getElementsByClassName("user-score");
   for (var index=0; index < count.length; index++) {
-    cardCount.push(count[index].src);
+    cardCount.push(count[index].textContent);
   }
   /* when all 6 cards are selected display finished message */
-  const [selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6] = cardCount;
-  console.log(selectedCard1, selectedCard2, selectedCard3, selectedCard4, selectedCard5, selectedCard6);
+  const scoreTaly = [...cardCount];
+  console.log(scoreTaly);
   if (cardCount.length === 6) {
     for (let tscore of totalScore) {
     tscore.classList.remove("total-score");
     }
   }
 }
+
 
 // function pushScore() {
 //   const itt = scoreList.values();
