@@ -66,9 +66,9 @@ function randomiser() {
     imgList.push(licImage);
     scoreList.push(cardScore);
   }
-  cardFunction(...cardList);
   licenceFunction(...imgList);
   scores(...scoreList);
+  cardFunction(...cardList);
 }
 
 
@@ -79,12 +79,14 @@ function cardFunction(a, b, c, d, e, f) {
       cardSelect[i].src = cardAct[i];
     }
   }
+
 }
+
 
 function licenceFunction(g, h, j, k, l, m) {
   const licAct = [g, h, j, k, l, m];
   for (let z = 0; z < 6; z++) {
-    if (cardSelect) {
+    if (licSelect) {
       licSelect[z].src = licAct[z];
     }
   }
@@ -93,30 +95,44 @@ function licenceFunction(g, h, j, k, l, m) {
 function scores(n, o, p, q, r, s) {
   const scoreAct = [n, o, p, q, r, s];
   for (let x = 0; x < 6; x++) {
-    if (cardSelect) {
+    if (userScore) {
       userScore[x].innerHTML = scoreAct[x];
     }
   }
 }
-console.log(gameImg);
 
 function startGame() {
   randomiser();
 }
-
 /* remove card select class DONT DELETE */
 
 for (let button of cardSelect) {
   button.addEventListener("click", function() {
     button.classList.remove("card-select");
     button.classList.add("image-border");
-    button.classList.add("card-count");
+    currentSource.push(button.currentSrc);
+    // console.log(userScore[0].innerHTML);
+    // button.classList.add("card-count");
     // if (e.target.parentNode.querySelector(".lic-select")) {
     //   e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
     // }
     // counter();
+    finish();
   });
 }
+
+const currentScore = [];
+const currentSource = [];
+function finish() {
+if (cardSelect.length < 1) {
+  totalScore[0].classList.remove("total-score");
+}
+}
+
+console.log(currentSource);
+
+
+
 
 // const changeCard = [];
 // function cardFunction(a, b, c, d, e, f) {
