@@ -2,7 +2,9 @@
 
 const cardSelect = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
-const gameImg = document.querySelectorAll("#game-img");
+const gameVal = document.querySelectorAll("#game-img");
+const licVal = document.querySelectorAll("#lic-img");
+const scoreVal = document.querySelectorAll("#score-val");
 const licSelect = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
@@ -71,33 +73,30 @@ function randomiser() {
   cardFunction(...cardList);
 }
 
-
 function cardFunction(a, b, c, d, e, f) {
   const cardAct = [a, b, c, d, e, f];
   for (let i = 0; i < 6; i++) {
-    if (cardSelect) {
-      cardSelect[i].src = cardAct[i];
-    }
+    const cardArray = cardAct[i].toString();
+     gameVal[i].src = cardArray;
   }
 
 }
 
-
 function licenceFunction(g, h, j, k, l, m) {
   const licAct = [g, h, j, k, l, m];
   for (let z = 0; z < 6; z++) {
-    if (licSelect) {
-      licSelect[z].src = licAct[z];
-    }
+    const licArray = licAct[z].toString();
+     licVal[z].classList.remove("img-hide");
+     licVal[z].src = licArray;
   }
+
 }
 
 function scores(n, o, p, q, r, s) {
   const scoreAct = [n, o, p, q, r, s];
   for (let x = 0; x < 6; x++) {
-    if (userScore) {
-      userScore[x].innerHTML = scoreAct[x];
-    }
+    const scrArray = scoreAct[x].toString();
+    scoreVal[x].innerHTML = scrArray;
   }
 }
 
@@ -111,11 +110,6 @@ for (let button of cardSelect) {
     button.classList.remove("card-select");
     button.classList.add("image-border");
     currentSource.push(button.currentSrc);
-    // console.log(userScore[0].innerHTML);
-    // button.classList.add("card-count");
-    // if (e.target.parentNode.querySelector(".lic-select")) {
-    //   e.target.parentNode.querySelector(".lic-select").classList.remove("lic-select");
-    // }
     // counter();
     finish();
   });
@@ -128,11 +122,6 @@ if (cardSelect.length < 1) {
   totalScore[0].classList.remove("total-score");
 }
 }
-
-console.log(currentSource);
-
-
-
 
 // const changeCard = [];
 // function cardFunction(a, b, c, d, e, f) {
