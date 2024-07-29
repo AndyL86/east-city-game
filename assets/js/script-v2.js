@@ -2,7 +2,7 @@
 
 const cardSelect = document.getElementsByClassName("card-select");
 const startBtn = document.getElementsByClassName("btn-start");
-const gameImg = document.querySelector("#game-img");
+const gameImg = document.querySelectorAll("#game-img");
 const licSelect = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
@@ -98,6 +98,7 @@ function scores(n, o, p, q, r, s) {
     }
   }
 }
+console.log(gameImg);
 
 function startGame() {
   randomiser();
@@ -106,7 +107,6 @@ function startGame() {
 /* remove card select class DONT DELETE */
 
 for (let button of cardSelect) {
-  console.log(button);
   button.addEventListener("click", function() {
     button.classList.remove("card-select");
     button.classList.add("image-border");
@@ -118,6 +118,29 @@ for (let button of cardSelect) {
   });
 }
 
+// const changeCard = [];
+// function cardFunction(a, b, c, d, e, f) {
+//   const cardAct = [a, b, c, d, e, f];
+//   for(var cardup=0;cardup < cardAct.length;cardup++){
+//     changeCard.push(cardAct[cardup])
+//   }
+// }
+
+// const changeLic = []; 
+// function licenceFunction(g, h, j, k, l, m) {
+//   const licAct = [g, h, j, k, l, m];
+//   for(var licup=0;licup < licAct.length;licup++){
+//     changeLic.push(licAct[licup])
+//   }
+// }
+
+// const changeScr = [];
+// function scores(n, o, p, q, r, s) {
+//   const scoreAct = [n, o, p, q, r, s];
+//   for(var scrup=0;scrup < scoreAct.length;scrup++){
+//     changeScr.push(scoreAct[scrup])
+//   }
+// }
 
 
 /* list of selected images */
