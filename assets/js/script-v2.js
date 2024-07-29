@@ -10,6 +10,7 @@ const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
 const userScore = document.getElementsByClassName("user-score");
 
+
 const cards = [{
   name: "dice 1",
   image: "assets/images/dice-1.png",
@@ -55,6 +56,7 @@ const cards = [{
 ];
 
 function randomiser() {
+  click();
   const cardList = [];
   const imgList = [];
   const scoreList = [];
@@ -76,18 +78,23 @@ function randomiser() {
 function cardFunction(a, b, c, d, e, f) {
   const cardAct = [a, b, c, d, e, f];
   for (let i = 0; i < 6; i++) {
+    const cardTrue = gameVal[i].classList.contains("card-select");
     const cardArray = cardAct[i].toString();
+    if (cardTrue) {
      gameVal[i].src = cardArray;
-  }
-
+    } else {}
+  };
 }
 
 function licenceFunction(g, h, j, k, l, m) {
   const licAct = [g, h, j, k, l, m];
   for (let z = 0; z < 6; z++) {
+    const licTrue = licVal[z].classList.contains("lic-select");
     const licArray = licAct[z].toString();
+    if (licTrue) {
      licVal[z].classList.remove("img-hide");
      licVal[z].src = licArray;
+    } else {}
   }
 
 }
@@ -95,72 +102,48 @@ function licenceFunction(g, h, j, k, l, m) {
 function scores(n, o, p, q, r, s) {
   const scoreAct = [n, o, p, q, r, s];
   for (let x = 0; x < 6; x++) {
+    const scoreTrue = scoreVal[x].classList.contains("user-score");
     const scrArray = scoreAct[x].toString();
+    if (scoreTrue) {
     scoreVal[x].innerHTML = scrArray;
+    } else {
+    }
   }
 }
 
 function startGame() {
   randomiser();
 }
-/* remove card select class DONT DELETE */
 
-for (let button of cardSelect) {
-  button.addEventListener("click", function() {
-    button.classList.remove("card-select");
-    button.classList.add("image-border");
-    currentSource.push(button.currentSrc);
-    // counter();
-    finish();
-  });
+function click() {
+  for (let selectedCard of cardSelect) {
+    const child1 = selectedCard.nextElementSibling;
+    const child2 = child1.children['lic-img'];
+    const child3 = child1.children['score-val'];
+    selectedCard.addEventListener("click", function() {
+      selectedCard.classList.remove("card-select");
+      selectedCard.classList.add("image-border");
+      child2.classList.remove("lic-select");
+      child3.classList.remove("user-score");
+      child3.classList.add("score-calc");
+      counter();
+    });
+  }
 }
 
-const currentScore = [];
-const currentSource = [];
-function finish() {
-if (cardSelect.length < 1) {
-  totalScore[0].classList.remove("total-score");
+
+function counter() {
+  const cardCount = [];
+  const count = document.getElementsByClassName("score-calc");
+  for (var index=0; index < count.length; index++) {
+    cardCount.push(count[index].textContent);
+  }
+  /* when all 6 cards are selected display finished message */
+  if (cardCount.length === 6) {
+    const scoreTaly = [...cardCount];
+    console.log(scoreTaly);
+    for (let tscore of totalScore) {
+    tscore.classList.remove("total-score");
+    }
+  }
 }
-}
-
-// const changeCard = [];
-// function cardFunction(a, b, c, d, e, f) {
-//   const cardAct = [a, b, c, d, e, f];
-//   for(var cardup=0;cardup < cardAct.length;cardup++){
-//     changeCard.push(cardAct[cardup])
-//   }
-// }
-
-// const changeLic = []; 
-// function licenceFunction(g, h, j, k, l, m) {
-//   const licAct = [g, h, j, k, l, m];
-//   for(var licup=0;licup < licAct.length;licup++){
-//     changeLic.push(licAct[licup])
-//   }
-// }
-
-// const changeScr = [];
-// function scores(n, o, p, q, r, s) {
-//   const scoreAct = [n, o, p, q, r, s];
-//   for(var scrup=0;scrup < scoreAct.length;scrup++){
-//     changeScr.push(scoreAct[scrup])
-//   }
-// }
-
-
-/* list of selected images */
-// function counter() {
-//   const cardCount = [];
-//   const count = document.getElementsByClassName("user-score");
-//   for (var index=0; index < count.length; index++) {
-//     cardCount.push(count[index].textContent);
-//   }
-//   /* when all 6 cards are selected display finished message */
-//   const scoreTaly = [...cardCount];
-//   console.log(scoreTaly);
-//   if (cardCount.length === 6) {
-//     for (let tscore of totalScore) {
-//     tscore.classList.remove("total-score");
-//     }
-//   }
-// }
