@@ -9,6 +9,7 @@ const licSelect = document.getElementsByClassName("lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
 const userScore = document.getElementsByClassName("user-score");
+const scoreMsg = document.getElementById("end-score");
 
 
 const cards = [{
@@ -106,8 +107,7 @@ function scores(n, o, p, q, r, s) {
     const scrArray = scoreAct[x].toString();
     if (scoreTrue) {
     scoreVal[x].innerHTML = scrArray;
-    } else {
-    }
+    } else {}
   }
 }
 
@@ -140,10 +140,13 @@ function counter() {
   }
   /* when all 6 cards are selected display finished message */
   if (cardCount.length === 6) {
-    const scoreTaly = [...cardCount];
-    console.log(scoreTaly);
     for (let tscore of totalScore) {
     tscore.classList.remove("total-score");
+    let sum = 0;
+      for (let i = 0; i < cardCount.length; i++ ) {
+        sum += parseInt(cardCount[i]);
+      }
+    scoreMsg.innerHTML = sum;
     }
   }
 }

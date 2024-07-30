@@ -31,11 +31,11 @@
     display: none;
 }
 
-.end-score {
+#end-score {
     text-align: center;
     font-size: x-large;
     font-weight: bold;
 }
-/* .hide-score {
+.hide-score {
     display: none;
-} */
+}
