@@ -1,5 +1,6 @@
 .container {
     padding: 0 6rem 6rem 6rem;
+    background-color: rgba(29, 29, 29, 0.8);
 }
 
 .img-hide {
@@ -16,15 +17,16 @@
 
 .btn-start {
     text-transform: uppercase;
+    font-size: x-large;
     font-weight: 800;
-    color: #37393A;
-    background-color: #f7b91e;
+    color: #d7d9da;
+    background-color: #8f0f0f;
     border-style: solid;
-    border-color: #37393A;
+    border-color: #d7d9da;
     border-width: 3px;
     border-radius: 6px;
-    width: 100px;
-    height: 40px;
+    width: 150px;
+    height: 70px;
 }
 
 .total-score {
@@ -36,6 +38,16 @@
     font-size: x-large;
     font-weight: bold;
 }
+
 .hide-score {
     display: none;
+}
+
+.bg-img {
+    background-image: url("../images/map.jpg");
+    object-fit: fill;
+}
+
+.card {
+    background-color: #f7b91e;
 }
