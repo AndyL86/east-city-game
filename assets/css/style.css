@@ -1,6 +1,7 @@
 .container {
-    padding: 0 6rem 6rem 6rem;
+    padding: 20rem 1rem 10rem 1rem;
     background-color: rgba(29, 29, 29, 0.8);
+    height: 100vh;
 }
 
 .img-hide {
@@ -35,8 +36,9 @@
 
 #end-score {
     text-align: center;
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bold;
+    color: #d7d9da;
 }
 
 .hide-score {
@@ -48,6 +50,18 @@
     object-fit: fill;
 }
 
-.card {
+.card-orange {
     background-color: #f7b91e;
+}
+
+.card-grey {
+    background-color: darkgray;
+}
+
+.card-body {
+    padding: 8px;
+}
+
+.row-padding {
+    padding-bottom: 2rem;
 }

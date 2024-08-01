@@ -14,46 +14,60 @@ const scoreMsg = document.getElementById("end-score");
 
 const cards = [{
   name: "dice 1",
-  image: "assets/images/dice-1.png",
+  image: "assets/images/r32.jpg",
   licence_img: "assets/images/b-licence.jpg",
   image_id: 0,
   score: 10,
 },
 {
   name: "dice 2",
-  image: "assets/images/dice-2.png",
+  image: "assets/images/s14.jpg",
   licence_img: "assets/images/a-licence.jpg",
   image_id: 1,
   score: 20,
 },
 {
   name: "dice 3",
-  image: "assets/images/dice-3.png",
+  image: "assets/images/s15.jpg",
   licence_img: "assets/images/ic-licence.jpg",
   image_id: 2,
   score: 30,
 },
 {
   name: "dice 4",
-  image: "assets/images/dice-4.png",
-  licence_img: "assets/images/ib-licence.jpg",
+  image: "assets/images/evo3.jpeg",
+  licence_img: "assets/images/ic-licence.jpg",
   image_id: 3,
   score: 40,
 },
 {
   name: "dice 5",
-  image: "assets/images/dice-5.png",
-  licence_img: "assets/images/ia-licence.jpg",
+  image: "assets/images/gc8.jpg",
+  licence_img: "assets/images/ib-licence.jpg",
   image_id: 4,
   score: 50,
 },
 {
   name: "dice 6",
-  image: "assets/images/dice-6.png",
-  licence_img: "assets/images/ia-licence.jpg",
+  image: "assets/images/r33.jpg",
+  licence_img: "assets/images/ib-licence.jpg",
   image_id: 5,
   score: 60,
 },
+{
+  name: "dice 6",
+  image: "assets/images/ps13.jpg",
+  licence_img: "assets/images/ia-licence.jpg",
+  image_id: 6,
+  score: 70,
+},
+{
+  name: "dice 6",
+  image: "assets/images/r34.jpg",
+  licence_img: "assets/images/ia-licence.jpg",
+  image_id: 7,
+  score: 80,
+}
 ];
 
 function randomiser() {
@@ -61,8 +75,8 @@ function randomiser() {
   const cardList = [];
   const imgList = [];
   const scoreList = [];
-  for (let i = 0; i < 6; i++) {
-    const imgSelector = Math.trunc(Math.random() * 6);
+  for (let i = 0; i < 8; i++) {
+    const imgSelector = Math.trunc(Math.random() * 8);
     const randomCard = cards.filter((value) => value.image_id === imgSelector);
     const cardImage = randomCard[0].image;
     const licImage = randomCard[0].licence_img;
@@ -120,12 +134,16 @@ function click() {
     const child1 = selectedCard.nextElementSibling;
     const child2 = child1.children['lic-img'];
     const child3 = child1.children['score-val'];
+    const parent1 = selectedCard.parentElement;
+    console.log(parent1.classList);
     selectedCard.addEventListener("click", function() {
       selectedCard.classList.remove("card-select");
       selectedCard.classList.add("image-border");
       child2.classList.remove("lic-select");
       child3.classList.remove("user-score");
       child3.classList.add("score-calc");
+      parent1.classlist.remove('card-orange');
+      parent1.classlist.add("card-grey");
       counter();
     });
   }
