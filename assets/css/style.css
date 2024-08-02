@@ -1,7 +1,12 @@
 .container {
-    padding: 5rem 1rem 10rem 1rem;
     background-color: rgba(29, 29, 29, 0.8);
     height: 100vh;
+}
+
+.card-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .img-hide {
@@ -89,7 +94,7 @@
 
 #myProgress {
     width: 90%;
-    background-color: #ddd;
+    background-color: rgba(29, 29, 29, 0.1);
     margin: auto;
   }
   
@@ -108,11 +113,34 @@
     img .card {
         width: 385px;
         height: 200px;
+        margin: auto;
+    }
+
+    .container {
+        padding: 3rem 1rem 10rem 1rem;
+    }
+
+    .game-btn {
+        padding: 3rem 1rem 10rem 1rem;
+    }
+
+    .card-padding {
+        padding: 1rem;
     }
 }
 
 @media only screen and (max-width: 787px) {
-    .card {
-        width: 100px;
+    #game-img {
+        height: 150px;
+    }
+
+    .card-wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .card-padding {
+        padding: 0.5rem;
     }
 }

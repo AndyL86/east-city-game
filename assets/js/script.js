@@ -10,6 +10,7 @@ const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
 const userScore = document.getElementsByClassName("user-score");
 const scoreMsg = document.getElementById("end-score");
+const revCounter = document.getElementById("myBar");
 
 
 const cards = [{
@@ -64,7 +65,7 @@ const cards = [{
 {
   name: "dice 6",
   image: "assets/images/r34.jpg",
-  licence_img: "assets/images/ia-licence.jpg",
+  licence_img: "assets/images/s-licence.jpg",
   image_id: 7,
   score: 300,
 }
@@ -174,8 +175,10 @@ function resetGame() {
     gameVal[k].src = "assets/images/default.png";
     licVal[k].classList.add("img-hide");
   }
-  scoreMsg.classList.add("total-score");
+  scoreMsg.classList.add("total-score");   
 }
+
+console.log(revCounter);
 
 var i = 0;
 function move(hpVal) {
