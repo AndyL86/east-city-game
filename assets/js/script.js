@@ -124,9 +124,10 @@ function scores(n, o, p, q, r, s) {
     } else {}
   }
 }
+let timeoutID;
 
 function startGame() {
-  randomiser();
+  timeoutID = setInterval(randomiser, 100);
 }
 
 function click() {
@@ -134,17 +135,15 @@ function click() {
     const child1 = selectedCard.nextElementSibling;
     const child2 = child1.children['lic-img'];
     const child3 = child1.children['score-val'];
-    const parent1 = selectedCard.parentElement;
-    console.log(parent1.classList);
     selectedCard.addEventListener("click", function() {
       selectedCard.classList.remove("card-select");
       selectedCard.classList.add("image-border");
       child2.classList.remove("lic-select");
       child3.classList.remove("user-score");
       child3.classList.add("score-calc");
-      parent1.classlist.remove('card-orange');
-      parent1.classlist.add("card-grey");
+      clearInterval(timeoutID);
       counter();
+      timeoutID = setTimeout(startGame, 500);
     });
   }
 }
@@ -167,4 +166,12 @@ function counter() {
     scoreMsg.innerHTML = sum;
     }
   }
+}
+
+function resetGame() {
+  for (let k = 0; k < 6; k++) {
+    gameVal[k].src = "assets/images/default.png";
+    licVal[k].classList.add("img-hide");
+  }
+  scoreMsg.classList.add("total-score");
 }

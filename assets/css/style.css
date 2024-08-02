@@ -1,5 +1,5 @@
 .container {
-    padding: 20rem 1rem 10rem 1rem;
+    padding: 5rem 1rem 10rem 1rem;
     background-color: rgba(29, 29, 29, 0.8);
     height: 100vh;
 }
@@ -21,7 +21,7 @@
     font-size: x-large;
     font-weight: 800;
     color: #d7d9da;
-    background-color: #8f0f0f;
+    background-color: #1e0f8f;
     border-style: solid;
     border-color: #d7d9da;
     border-width: 3px;
@@ -49,6 +49,12 @@
     background-image: url("../images/map.jpg");
     object-fit: fill;
 }
+.card {
+    border-style: solid;
+    border-color: #d7d9da;
+    border-width: 3px;
+    border-radius: 6px;
+}
 
 .card-orange {
     background-color: #f7b91e;
@@ -64,4 +70,32 @@
 
 .row-padding {
     padding-bottom: 2rem;
+}
+
+.btn-reset {
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: 800;
+    color: #d7d9da;
+    background-color: #8f0f0f;
+    border-style: solid;
+    border-color: #d7d9da;
+    border-width: 3px;
+    border-radius: 6px;
+    width: 100px;
+    height: 40px;
+    margin: 40px;
+}
+
+@media only screen and (min-width: 787px) {
+    img .card {
+        width: 385px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 787px) {
+    .card {
+        width: 100px;
+    }
 }
