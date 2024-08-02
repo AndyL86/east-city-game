@@ -96,7 +96,7 @@
   #myBar {
     width: 1%;
     height: 30px;
-    background-color: #04AA6D;
+    background-image: linear-gradient(to right, #23ae2d, #759d00, #a68500, #ce6400, #eb2e12);
   }
 
   .row>* {
