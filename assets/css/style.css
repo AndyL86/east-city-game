@@ -87,6 +87,23 @@
     margin: 40px;
 }
 
+#myProgress {
+    width: 90%;
+    background-color: #ddd;
+    margin: auto;
+  }
+  
+  #myBar {
+    width: 1%;
+    height: 30px;
+    background-color: #04AA6D;
+  }
+
+  .row>* {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
 @media only screen and (min-width: 787px) {
     img .card {
         width: 385px;

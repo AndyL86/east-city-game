@@ -17,56 +17,56 @@ const cards = [{
   image: "assets/images/r32.jpg",
   licence_img: "assets/images/b-licence.jpg",
   image_id: 0,
-  score: 10,
+  score: 275,
 },
 {
   name: "dice 2",
   image: "assets/images/s14.jpg",
   licence_img: "assets/images/a-licence.jpg",
   image_id: 1,
-  score: 20,
+  score: 220,
 },
 {
   name: "dice 3",
   image: "assets/images/s15.jpg",
   licence_img: "assets/images/ic-licence.jpg",
   image_id: 2,
-  score: 30,
+  score: 240,
 },
 {
   name: "dice 4",
   image: "assets/images/evo3.jpeg",
   licence_img: "assets/images/ic-licence.jpg",
   image_id: 3,
-  score: 40,
+  score: 275,
 },
 {
   name: "dice 5",
   image: "assets/images/gc8.jpg",
   licence_img: "assets/images/ib-licence.jpg",
   image_id: 4,
-  score: 50,
+  score: 260,
 },
 {
   name: "dice 6",
   image: "assets/images/r33.jpg",
   licence_img: "assets/images/ib-licence.jpg",
   image_id: 5,
-  score: 60,
+  score: 285,
 },
 {
   name: "dice 6",
   image: "assets/images/ps13.jpg",
   licence_img: "assets/images/ia-licence.jpg",
   image_id: 6,
-  score: 70,
+  score: 190,
 },
 {
   name: "dice 6",
   image: "assets/images/r34.jpg",
   licence_img: "assets/images/ia-licence.jpg",
   image_id: 7,
-  score: 80,
+  score: 300,
 }
 ];
 
@@ -163,7 +163,8 @@ function counter() {
       for (let i = 0; i < cardCount.length; i++ ) {
         sum += parseInt(cardCount[i]);
       }
-    scoreMsg.innerHTML = sum;
+    scoreMsg.innerHTML = sum + "HP";
+    move(sum);
     }
   }
 }
@@ -174,4 +175,24 @@ function resetGame() {
     licVal[k].classList.add("img-hide");
   }
   scoreMsg.classList.add("total-score");
+}
+
+var i = 0;
+function move(hpVal) {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 50);
+    var revVal = hpVal / 20;
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = revVal + "%";
+      }
+    }
+  }
 }
