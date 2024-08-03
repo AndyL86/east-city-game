@@ -131,7 +131,7 @@
 
 @media only screen and (max-width: 787px) {
     #game-img {
-        height: 100px;
+        height: 80px;
     }
 
     .card-wrap {
@@ -141,20 +141,29 @@
     }
 
     .card-padding {
-        padding: 0.5rem;
+        padding: 5px;
     }
 
     #end-score {
         font-size: small;
+        display: flex;
+        flex-direction: row;
     }
 
     .btn-start {
-        width: 130px;
-        height: 50px;
+        width: 80px;
+        height: 40px;
+        font-size: small;
+    }
+
+    .btn-reset {
+        width: 60px;
+        height: 30px;
+        font-size: small;
     }
 
     .game-btn {
-        padding: 1rem 1rem 2rem 1rem;
+        padding: 0.5rem 1rem 2rem 1rem;
     }
 
     .card-body {
