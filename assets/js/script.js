@@ -144,7 +144,7 @@ function click() {
       child3.classList.add("score-calc");
       clearInterval(timeoutID);
       counter();
-      timeoutID = setTimeout(startGame, 500);
+      timeoutID = setTimeout(startGame, 200);
     });
   }
 }

@@ -131,7 +131,7 @@
 
 @media only screen and (max-width: 787px) {
     #game-img {
-        height: 150px;
+        height: 120px;
     }
 
     .card-wrap {
@@ -142,5 +142,9 @@
 
     .card-padding {
         padding: 0.5rem;
+    }
+
+    #end-score {
+        font-size: small;
     }
 }
