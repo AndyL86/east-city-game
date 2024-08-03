@@ -131,7 +131,7 @@
 
 @media only screen and (max-width: 787px) {
     #game-img {
-        height: 120px;
+        height: 100px;
     }
 
     .card-wrap {
@@ -147,4 +147,21 @@
     #end-score {
         font-size: small;
     }
+
+    .btn-start {
+        width: 130px;
+        height: 50px;
+    }
+
+    .game-btn {
+        padding: 1rem 1rem 2rem 1rem;
+    }
+
+    .card-body {
+        padding: 5px;
+    }
+
+    #myProgress {
+        width: 80%;
+      }
 }
