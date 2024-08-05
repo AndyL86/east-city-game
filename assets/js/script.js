@@ -175,10 +175,9 @@ function resetGame() {
     gameVal[k].src = "assets/images/default.png";
     licVal[k].classList.add("img-hide");
   }
-  scoreMsg.classList.add("total-score");   
+  scoreMsg.classList.add("total-score");
 }
 
-console.log(revCounter);
 
 var i = 0;
 function move(hpVal) {

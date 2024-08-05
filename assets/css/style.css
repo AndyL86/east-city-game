@@ -41,9 +41,10 @@
 
 #end-score {
     text-align: center;
-    font-size: xx-large;
+    font-size: larger;
     font-weight: bold;
     color: #d7d9da;
+    margin: auto;
 }
 
 .hide-score {
@@ -93,7 +94,7 @@
 }
 
 #myProgress {
-    width: 90%;
+    width: 80%;
     background-color: rgba(29, 29, 29, 0.1);
     margin: auto;
   }
@@ -172,6 +173,6 @@
 
     #myProgress {
         width: 80%;
-        padding-top: 5px;
+        padding: 20px 0 20px 0;
       }
 }
