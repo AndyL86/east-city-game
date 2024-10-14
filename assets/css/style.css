@@ -10,7 +10,7 @@
 }
 
 .img-hide {
-    display: none;
+    visibility: hidden;
 }
 
 .card-select {
