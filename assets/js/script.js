@@ -71,6 +71,22 @@ const cards = [{
 }
 ];
 
+// Window load modal 
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+window.addEventListener("load", (event) => {
+  modal.style.display = "block";
+});
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+// Random card function
 function randomiser() {
   click();
   const cardList = [];
@@ -91,6 +107,7 @@ function randomiser() {
   cardFunction(...cardList);
 }
 
+// Card function
 function cardFunction(a, b, c, d, e, f) {
   const cardAct = [a, b, c, d, e, f];
   for (let i = 0; i < 6; i++) {
@@ -102,6 +119,7 @@ function cardFunction(a, b, c, d, e, f) {
   };
 }
 
+// Licence function
 function licenceFunction(g, h, j, k, l, m) {
   const licAct = [g, h, j, k, l, m];
   for (let z = 0; z < 6; z++) {
@@ -115,6 +133,7 @@ function licenceFunction(g, h, j, k, l, m) {
 
 }
 
+// Score function
 function scores(n, o, p, q, r, s) {
   const scoreAct = [n, o, p, q, r, s];
   for (let x = 0; x < 6; x++) {
@@ -131,6 +150,7 @@ function startGame() {
   timeoutID = setInterval(randomiser, 100);
 }
 
+// Game action function
 function click() {
   for (let selectedCard of cardSelect) {
     const child1 = selectedCard.nextElementSibling;
@@ -149,7 +169,7 @@ function click() {
   }
 }
 
-
+// End game
 function counter() {
   const cardCount = [];
   const count = document.getElementsByClassName("score-calc");
@@ -170,6 +190,7 @@ function counter() {
   }
 }
 
+// reset game
 function resetGame() {
   for (let k = 0; k < 6; k++) {
     gameVal[k].src = "assets/images/default.png";
@@ -178,7 +199,7 @@ function resetGame() {
   scoreMsg.classList.add("total-score");
 }
 
-
+// score bar
 var i = 0;
 function move(hpVal) {
   if (i == 0) {
