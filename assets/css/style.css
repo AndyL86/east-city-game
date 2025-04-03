@@ -124,18 +124,18 @@
   }
   
   .modal-content {
-    background-color: #fefefe;
+    background-color: #f7b91e;
     margin: 15% auto;
     padding: 15px 20px;
-    border: 1px solid #888;
-    width: 80%;
+    width: 60%;
     min-height: 50%;
+    border: 5px solid black;
   }
 
   .close {
-    color: #aaa;
+    color: #030303;
     float: right;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bold;
     display: flex;
     justify-content: flex-end;
