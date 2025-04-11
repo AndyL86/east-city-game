@@ -191,13 +191,13 @@ function counter() {
 }
 
 // reset game
-function resetGame() {
-  for (let k = 0; k < 6; k++) {
-    gameVal[k].src = "assets/images/default.png";
-    licVal[k].classList.add("img-hide");
-  }
-  scoreMsg.classList.add("total-score");
-}
+// function resetGame() {
+//   for (let k = 0; k < 6; k++) {
+//     gameVal[k].src = "assets/images/default.png";
+//     licVal[k].classList.add("img-hide");
+//   }
+//   scoreMsg.classList.add("total-score");
+// }
 
 // score bar
 var i = 0;

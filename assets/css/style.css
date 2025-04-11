@@ -156,9 +156,9 @@
     padding-bottom: 20px;
   }
 
-@media only screen and (min-width: 787px) {
-    img {
-        max-height: 143px;
+@media only screen and (min-width: 788px) {
+    .card-img-top {
+        height: 200px;
     }
     .container {
         padding: 3rem 1rem 10rem 1rem;
@@ -166,7 +166,7 @@
     }
 
     .game-btn {
-        padding: 3rem 1rem 10rem 1rem;
+        padding: 3rem 1rem 3rem 1rem;
     }
 
     .card-padding {
