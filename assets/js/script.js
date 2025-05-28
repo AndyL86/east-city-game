@@ -5,10 +5,10 @@ const startBtn = document.getElementsByClassName("btn-start");
 const gameVal = document.querySelectorAll("#game-img");
 const licVal = document.querySelectorAll("#lic-img");
 const scoreVal = document.querySelectorAll("#score-val");
-const licSelect = document.getElementsByClassName("lic-select");
+const licSelect = document.querySelectorAll(".lic-select");
 const hideImg = document.getElementsByClassName("img-hide");
 const totalScore = document.getElementsByClassName("total-score");
-const userScore = document.getElementsByClassName("user-score");
+const userScore = document.querySelectorAll(".user-score");
 const scoreMsg = document.getElementById("end-score");
 const revCounter = document.getElementById("myBar");
 
@@ -108,8 +108,8 @@ function randomiser() {
 }
 
 // Card function
-function cardFunction(a, b, c, d, e, f) {
-  const cardAct = [a, b, c, d, e, f];
+function cardFunction(...cardList) {
+  const cardAct = [...cardList];
   for (let i = 0; i < 6; i++) {
     const cardTrue = gameVal[i].classList.contains("card-select");
     const cardArray = cardAct[i].toString();
@@ -120,8 +120,8 @@ function cardFunction(a, b, c, d, e, f) {
 }
 
 // Licence function
-function licenceFunction(g, h, j, k, l, m) {
-  const licAct = [g, h, j, k, l, m];
+function licenceFunction(...imgList) {
+  const licAct = [...imgList];
   for (let z = 0; z < 6; z++) {
     const licTrue = licVal[z].classList.contains("lic-select");
     const licArray = licAct[z].toString();
@@ -134,8 +134,8 @@ function licenceFunction(g, h, j, k, l, m) {
 }
 
 // Score function
-function scores(n, o, p, q, r, s) {
-  const scoreAct = [n, o, p, q, r, s];
+function scores(...scoreList) {
+  const scoreAct = [...scoreList];
   for (let x = 0; x < 6; x++) {
     const scoreTrue = scoreVal[x].classList.contains("user-score");
     const scrArray = scoreAct[x].toString();
@@ -190,14 +190,7 @@ function counter() {
   }
 }
 
-// reset game
-// function resetGame() {
-//   for (let k = 0; k < 6; k++) {
-//     gameVal[k].src = "assets/images/default.png";
-//     licVal[k].classList.add("img-hide");
-//   }
-//   scoreMsg.classList.add("total-score");
-// }
+
 
 // score bar
 var i = 0;
@@ -215,7 +208,40 @@ function move(hpVal) {
       } else {
         width++;
         elem.style.width = revVal + "%";
+        clearInterval(id);
       }
     }
   }
+}
+
+// reset game
+function resetGame() {
+    clearTimeout(timeoutID);
+    clearInterval(timeoutID);
+  for (let k = 0; k < 6; k++) {
+    gameVal[k].src = "assets/images/default.png";
+    licVal[k].classList.add("img-hide");
+  }
+  scoreVal.forEach((resetScore) => {
+    resetScore.innerHTML = '';
+  })
+    var elem = document.getElementById("myBar");
+    elem.style.width = '';
+    scoreMsg.classList.add("total-score");
+    scoreMsg.innerHTML = '';
+  licSelect.forEach((licRemove) => {
+    licRemove.classList.add("lic-select")
+    licRemove.src = '';
+  })
+  userScore.forEach((scoreRemove) => {
+    scoreRemove.innerHTML = '';
+  })
+  scoreVal.forEach((clearScore) => {
+    clearScore.classList.remove("score-calc");
+    clearScore.classList.add("user-score");
+  })
+  gameVal.forEach((clearImg) => {
+    clearImg.classList.remove("image-border");
+    clearImg.classList.add("card-select");
+  })
 }
