@@ -130,6 +130,7 @@
     width: 60%;
     min-height: 50%;
     border: 5px solid black;
+    top: -30px;
   }
 
   .close {
